@@ -1,0 +1,32 @@
+@babel/preset-env
+所包含的插件将支持所有最新的JS特性(不包含 stage 阶段)，将其转换成ES5代码。
+
+什么是stage呢？stage里面包含了当年最新规范的草案，每年更新。
+
+@babel/polyfill
+@babel/polyfill 模块包括 core-js 和一个自定义的 regenerator runtime 模块，可以模拟完整的 ES2015+ 环境（不包含第4阶段前的提议）。
+
+babel v7.4版之后，官方不推荐再使用@babel/polyfill了，需要直接安装core-js 和 regenerator-runtime去替代之前的@babel/polyfill。
+
+@babel/runtime
+@babel/preset-env在做语法转换的时候，注入了这些函数声明，以便语法转换后使用。
+@babel/runtime把所有语法转换会用到的辅助函数都集成在了一起。
+
+@babel/plugin-transform-runtime
+这个插件的作用就是自动移除语法转换后内联的辅助函数（inline Babel helpers），使用@babel/runtime/helpers里的辅助函数来替代。这样就减少了我们手动引入的麻烦。
+
+
+@babel/plugin-transform-runtime的大多数应用场景是在写第三方库时来使用，这样可以避免影响到使用者的JavaScript环境，造成全局污染。
+在自己独立的项目中，更多情况下推荐使用@babel/preset-env搭配useBuiltIns即可，而无需再使用@babel/plugin-transform-runtime
+
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ]
+  ]
+}

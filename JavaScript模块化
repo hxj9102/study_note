@@ -1,0 +1,49 @@
+commonjs（nodeJs）
+解决了依赖、全局变量污染的问题
+
+同步加载模块
+
+AMD（requireJs）
+依赖前置，不能按需加载
+
+CMD（seaJs）
+按需加载，就近原则
+
+AMD和CMD异步、并行加载模块
+
+ES6模块化（es6）
+
+
+CommonJs和ES6区别
+（1） CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
+（2） CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
+
+
+运行时加载：
+整体加载模块
+
+编译时加载（静态加载）：
+从模块指定加载某个输出值
+
+
+import函数和require函数
+两者都是运行时加载，区别时前者是异步加载，后者是同步加载
+
+commonjs模块可以通过import（）这个方法运行es6模块
+
+es6模块可以加载commonjs模块，但只能是整体加载
+
+
+循环加载 
+
+CommonJS 模块的循环加载
+CommonJS 模块的重要特性是加载时执行，即脚本代码在require的时候，就会全部执行。一旦出现某个模块被"循环加载"，就只输出已经执行的部分，还未执行的部分不会输出。
+
+
+
+
+参考：
+
+https://juejin.cn/post/6844903636108066830
+
+https://es6.ruanyifeng.com/#docs/module-loader

@@ -1,0 +1,72 @@
+打包出来是一个立即执行函数
+
+// 安装过的模块都存放在这里面
+// 作用是把已经加载过的模块缓存在内存中，提升性能
+var installedModules = {};
+
+// 去数组中加载一个模块，moduleId 为要加载模块在数组中的 index
+// 作用和 Node.js 中 require 语句相似
+function __webpack_require__
+
+
+用于加载被分割出去的，需要异步加载的 Chunk 对应的文件
+__webpack_require__.e = function requireEnsure(chunkId)
+
+
+webpackJsonpCallback 用于从异步加载的文件中安装模块。
+把 webpackJsonpCallback 挂载到全局是为了方便在其它文件中调用。
+ * @param chunkIds 异步加载的文件中存放的需要安装的模块对应的 Chunk ID
+   * @param moreModules 异步加载的文件中存放的需要安装的模块列表
+   * @param executeModules 在异步加载的文件中存放的需要安装的模块都安装成功后，需要执行的模块对应的 index
+
+
+window["webpackJsonp_name_js"] = window["webpackJsonp_name_js"].push = webpackJsonpCallback
+
+
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"index": 0
+/******/ 	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+（https://segmentfault.com/q/1010000009276145）
+vue-cli全家桶默认配置解读，如有错误，请指出：
+app.js：基本就是你实际编写的那个app.vue(.vue或.js?),没这个页面跑不起来.
+vendor.js:vue-cli全家桶默认配置里面这个chunk就是将所有从node_modules/里require(import)的依赖都打包到这里，所以这个就是所有node_modules/下的被require(import)的js文件
+manifest.js: 最后一个chunk，被注入了webpackJsonp的定义及异步加载相关的定义(webpack调用
+
+
+shimming：消灭全局引用
