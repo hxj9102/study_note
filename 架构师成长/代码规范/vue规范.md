@@ -1,3 +1,5 @@
+尽量减少在index.html文件中写js代码，webpack不会对该文件进行语法转换
+
 *
 
 
